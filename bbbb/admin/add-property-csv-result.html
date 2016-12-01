@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>物件一括管理 - howShot</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Bootstrap Core CSS by CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+
+<!-- MetisMenu CSS by CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.4.0/metisMenu.min.css" />
+
+<!-- Custom Fonts by CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+<!-- Custom CSS -->
+<link rel="stylesheet" href="../dist/css/sb-admin-2.css" />
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+<div id="wrapper">
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.html"><span style="color:#982f5d">how</span><b><span style="color:#340017">Shot</span></b> <small><small><small>v1.0 (1.00.12.1)</small></small></small></a>
+		</div>
+		<!-- /.navbar-header -->
+
+		<ul class="nav navbar-top-links navbar-right">
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					<i class="fa fa-user fa-fw"></i>&nbsp;&nbsp;<i class="fa fa-caret-down"></i>
+				</a>
+				<ul class="dropdown-menu dropdown-user">
+					<li><a href="#"><i class="fa fa-gear fa-fw"></i>&nbsp;ユーザ情報</a></li>
+					<li class="divider"></li>
+					<li><a href="../index.html"><i class="fa fa-sign-out fa-fw"></i>&nbsp;ログアウト</a></li>
+				</ul>
+				<!-- /.dropdown-user -->
+			</li>
+			<!-- /.dropdown -->
+		</ul>
+		<!-- /.navbar-top-links -->
+
+		<div class="navbar-default sidebar" role="navigation">
+			<div class="sidebar-nav navbar-collapse">
+				<ul class="nav" id="side-menu">
+					<li class="sidebar-search">
+						<div class="input-group custom-search-form">
+							<input type="text" class="form-control" placeholder="Spotlight..." />
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+							</span>
+						</div>
+					</li>
+					<li><a href="index.html"><i class="fa fa-dashboard fa-fw"></i>&nbsp;ダッシュボード</a></li>
+					<li>
+						<a href="#"><i class="fa fa-university fa-fw"></i>&nbsp;物件情報<span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="add-property-csv.html">一括登録</a></li>
+							<li><a href="add-property.html">気合で登録</a></li>
+							<!-- <li><a href="property.html">一覧</a></li> -->
+						</ul>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-cog fa-fw"></i>&nbsp;設定<span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="set-asp.html">ASP設定</a></li>
+							<li><a href="set-users.html">ユーザとグループ</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<!-- /.sidebar-collapse -->
+		</div>
+		<!-- /.navbar-static-side -->
+	</nav>
+	<!-- /.Navigation -->
+	
+		
+	<!-- page-wrapper -->
+	<div id="page-wrapper">
+		<!--div class="pull-right hidden-xs hidden-sm" style="margin-top:10px;">
+			<ul class="breadcrumb">
+				<li><a href="index.html">グリッド表示s</a></li>
+				<li class="active">リスト表示</li>
+			</ul>
+		</div-->
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">物件を一括登録</h1>
+			</div>
+		</div>
+		
+		ダイジェスト：
+		<ul>
+			<li><a href="#1">ロビンコート</a></li>
+			<li><a href="#2">テラス代官山</a></li>
+			<li><a href="#3">ジーエスグランド代々木上原</a></li>
+		</ul>
+		<p class="text-right"><a href="#action"><i class="fa fa-arrow-down"></i>&nbsp;登録処理</a></p>
+		
+	
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover table-striped">
+				<thead>
+					<tr>
+						<th rowspan="4" class="text-nowrap">行</th>
+						<th colspan="9" class="text-nowrap">物件名<div class="pull-right text-muted">操作</div></th>
+					</tr>
+					<tr>
+						<th class="text-nowrap">賃料</th>
+						<th class="text-nowrap">管理費</th>
+						<th class="text-nowrap">敷金</th>
+						<th class="text-nowrap">礼金</th>
+						<th class="text-nowrap">保証金</th>
+						<th class="text-nowrap">割引</th>
+						<th class="text-nowrap">築年</th>
+						<th class="text-nowrap">面積</th>
+						<th class="text-nowrap">採光</th>
+					</tr>
+					<tr>
+						<th colspan="2">間取り</th>
+						<th colspan="4">所在地</th>
+						<th colspan="3">交通</th>
+					</tr>
+					<tr>
+						<th colspan="9">画像</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr id="1">
+						<td rowspan="4" class="text-nowrap"><b>1</b></td>
+						<td colspan="9" class="text-nowrap"><b>ロビンコート</b>
+							<div class="pull-right">
+								<form action="add-property-r.html" method="post">
+									<input type="hidden" name="pid" value="1" />
+									<button type="submit" class="btn btn-default btn-xs">個別編集</button>
+								</form>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="text-nowrap">119,000円</td>
+						<td class="text-nowrap">3,500円</td>
+						<td class="text-nowrap">1ヶ月</td>
+						<td class="text-nowrap">1ヶ月</td>
+						<td class="text-nowrap"></td>
+						<td class="text-nowrap"></td>
+						<td class="text-nowrap">2015/12</td>
+						<td class="text-nowrap">38.5m&sup2;</td>
+						<td class="text-nowrap">南</td>
+					</tr>
+					<tr style="display: none;"><td colspan="9"></td></tr>
+					<tr>
+						<td colspan="2">1LDK (リビングダイニングキッチン 10.3帖(2階) 洋室 3.7帖(2階))</td>
+						<td colspan="3">東京都渋谷区幡ヶ谷3丁目</td>
+						<td colspan="4">京王線 幡ヶ谷駅 徒歩9分<br />京王線 笹塚駅 徒歩14分<br />東京メトロ丸ノ内線 中野新橋駅 徒歩16分</td>
+					</tr>
+					<tr style="display: none;"><td colspan="9"></td></tr>
+					<tr>
+						<td colspan="9">
+							<ul class="list-inline album-selector">
+								<li><label for="1-1"><input type="checkbox" name="img[]" id="1-1" value="0" /><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSSipF84EHbLeEcreA0LWhI2oHLUltI_1rDVFXX5mbW7XQMIUhVBw" /></label></li>
+								<li><label for="1-2"><input type="checkbox" name="img[]" id="1-2" value="0" /><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSEZM8Z5rX7Hc5xMjyN32VzXPSFDnsh277p5wDnBo7Ckec0vJj6ZQ" /></label></li>
+								<li><label for="1-3"><input type="checkbox" name="img[]" id="1-3" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcT9H6ctb6LqY2drvqunIO9osoNfAxuxFHuDxjLohTYmHvooW-o3NllOBQ" /></label></li>
+								<li><label for="1-4"><input type="checkbox" name="img[]" id="1-4" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSbzhjbg-aEuRLKeGJ8w-_wIAGr42Zz5aQA6GR_r7SFlUom5j96" /></label></li>
+								<li><label for="1-5"><input type="checkbox" name="img[]" id="1-5" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSilu0wlU3XFFXATz0oTx9x98QhRWYGv9Q5CexnqVhY933q-6lp" /></label></li>
+								<li><label for="1-6"><input type="checkbox" name="img[]" id="1-6" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQnt6rL14oUtnf9kUVEBcBUIbvTGWjUzEmUSB7KmVdCDfuRYPPG" /></label></li>
+								<li><label for="1-7"><input type="checkbox" name="img[]" id="1-7" value="0" /><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ6RUASpdSjrdqIj5eN82LGVHKk2u2s2f9x6Cshqb4ymo0l00EI" /></label></li>
+								<li><label for="1-8"><input type="checkbox" name="img[]" id="1-8" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQmV51wbtO0tyT3AEBM4nC0Y7bm3zJW526X29VdKmM8vIDcbz2qZQ" /></label></li>
+								<li><label for="1-9"><input type="checkbox" name="img[]" id="1-9" value="0" /><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSOjVDqqEhHxuKxUVlhNeXvS0IKSDTX1Q1CVYMJbq_x3CFkxLqotQ" /></label></li>
+								<li><label for="1-10"><input type="checkbox" name="img[]" id="1-10" value="0" /><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT2UIWqD0Miwe5Av2aT050zSM8Zo_OzCWcGWWtpygPsjZ90zS_UoA" /></label></li>
+							</ul>
+						</td>
+					</tr>
+					
+					<tr id="2">
+						<td rowspan="4" class="text-nowrap"><b>2</b></td>
+						<td colspan="9" class="text-nowrap"><b>テラス代官山</b>
+							<div class="pull-right">
+								<form action="add-property-r.html" method="post">
+									<input type="hidden" name="pid" value="2" />
+									<button type="submit" class="btn btn-default btn-xs">個別編集</button>
+								</form>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="text-nowrap">18,9000円</td>
+						<td class="text-nowrap">10,000円</td>
+						<td class="text-nowrap">1ヶ月</td>
+						<td class="text-nowrap">無</td>
+						<td class="text-nowrap"></td>
+						<td class="text-nowrap">割引</td>
+						<td class="text-nowrap">2015/9</td>
+						<td class="text-nowrap">50.16m&sup2;</td>
+						<td class="text-nowrap">北西</td>
+					</tr>
+					<tr style="display: none;"><td colspan="9"></td></tr>
+					<tr>
+						<td colspan="2">1LDK (洋室 10.7帖 リビングダイニングキッチン 13.7帖)</td>
+						<td colspan="4">東京都渋谷区恵比寿西1丁目28-6</td>
+						<td colspan="3">ＪＲ山手線 恵比寿駅 徒歩4分<br />東急東横線 代官山駅 徒歩4分<br />東京メトロ日比谷線 中目黒駅 徒歩14分</td>
+					</tr>
+					<tr style="display: none;"><td colspan="9"></td></tr>
+					<tr>
+						<td colspan="9">
+							<ul class="list-inline album-selector">
+								<li><label for="2-1"><input type="checkbox" name="img[]" id="2-1" value="0" /><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQWdbKXmXUMqJIUTZ3D5oFOxHhi02d39fY3bcAKe_1Ihl-Qn5KIEg" /></label></li>
+								<li><label for="2-2"><input type="checkbox" name="img[]" id="2-2" value="0" /><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQC7GBvIN1GTEFxxa45c_uNiS9shscUwbhev2nK3F0IUgpZP8xNKocSyg" /></label></li>
+								<li><label for="2-3"><input type="checkbox" name="img[]" id="2-3" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQl5xrSqX-QqqKMQ1-TwasbnHqe-WfU6NnNG-9bJ0xfACYaHNZbc0LWpw" /></label></li>
+								<li><label for="2-4"><input type="checkbox" name="img[]" id="2-4" value="0" /><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQojCBzejW30oBnCSVbKjhF6F1hrqpqEhmc2eqpZShComokqI2uKglCsQ" /></label></li>
+								<li><label for="2-5"><input type="checkbox" name="img[]" id="2-5" value="0" /><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGMD9P9eve-WzXeZjzpI4FXgNca19UraWCcRWbyrqq3KvKL8bD" /></label></li>
+								<li><label for="2-6"><input type="checkbox" name="img[]" id="2-6" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTaRvc1zsDEwXQB_2hWgDWcGjF1XkpzRrOXxK_c5uq-Drav5SvjexjbWA" /></label></li>
+								<li><label for="2-7"><input type="checkbox" name="img[]" id="2-7" value="0" /><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRxb8PbW3mt_woCZjJy6fRcbRNeZCiqeykg3yVc0c1GDZjJad_8Dg" /></label></li>
+								<li><label for="2-8"><input type="checkbox" name="img[]" id="2-8" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRgUNavedQejnEOGAtiJEsByw-hNhHu0XTn8TbM_T11bXDMsoA8Bw" /></label></li>
+								<li><label for="2-9"><input type="checkbox" name="img[]" id="2-9" value="0" /><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSiAD0g6bvTRP0nZYeby1fIuGcVjl27M6IsP9V8BCnjBNL8RXhEpvjH9g" /></label></li>
+								<li><label for="2-10"><input type="checkbox" name="img[]" id="2-10" value="0" /><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKSaPjaQKcytStyUodp7rjVQX_9rF0PYVFLWovLLpOHzARB-r8rg" /></label></li>
+								<li><label for="2-11"><input type="checkbox" name="img[]" id="2-11" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSMzowhUatQ0ZGLekZXD_16bg5b5K0XkPCASrukd9UTkz0zBdJU9QMx1A" /></label></li>
+								<li><label for="2-12"><input type="checkbox" name="img[]" id="2-12" value="0" /><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTlkvIiSLpiQBnbkyTZoKEvUYv0FOJtie9bzUsa5R5p9z1EQyS5f3JAaw" /></label></li>
+								<li><label for="2-13"><input type="checkbox" name="img[]" id="2-13" value="0" /><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUuuIsoXiPSx4tiaKfpaEsRcn-kQv3q_Ylzx4quh82vcHOevvrsmow5w" /></label></li>
+								<li><label for="2-14"><input type="checkbox" name="img[]" id="2-14" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTNOeSWIkTw6ePAWVD_dPPSr5yqwuKl5k_1h6NXj0mGoOFkmyQ0" /></label></li>
+								<li><label for="2-15"><input type="checkbox" name="img[]" id="2-15" value="0" /><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQXTqHIEK-c0BZ7jEi6ruSff5z-DzvPPh4BWzQ5lHdvSEvbYiFCQss8wQ" /></label></li>
+								<li><label for="2-16"><input type="checkbox" name="img[]" id="2-16" value="0" /><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ3E8RTORTPitvGTsilgEApFKE2SuNct8Uydnx3GGYAiqZg5vERuF-42A" /></label></li>
+								<li><label for="2-17"><input type="checkbox" name="img[]" id="2-17" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRcyInp1kQ1gtg5E02aqd_AFZmqehRdrl1tZd42OXbEXn5as6xfq2R7yQ" /></label></li>
+								<li><label for="2-18"><input type="checkbox" name="img[]" id="2-18" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSSFSKa6dl1PboFj3iJKheVABpKpu3WPbJo2mg20csMox0oMvmL5lhq0A" /></label></li>
+							</ul>
+						</td>
+					</tr>
+					
+					<tr id="3">
+						<td rowspan="4" class="text-nowrap"><b>3</b></td>
+						<td colspan="9" class="text-nowrap">
+							<b>ジーエスグランド代々木上原</b>
+							<div class="pull-right">
+								<form action="add-property-r.html" method="post">
+									<input type="hidden" name="pid" value="3" />
+									<button type="submit" class="btn btn-default btn-xs">個別編集</button>
+								</form>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="text-nowrap">213,000円</td>
+						<td class="text-nowrap"></td>
+						<td class="text-nowrap">2ヶ月</td>
+						<td class="text-nowrap"></td>
+						<td class="text-nowrap">1ヶ月</td>
+						<td class="text-nowrap"></td>
+						<td class="text-nowrap">2015/9</td>
+						<td class="text-nowrap">50.27m&sup2;</td>
+						<td class="text-nowrap">東</td>
+					</tr>
+					<tr style="display: none;"><td colspan="9"></td></tr>
+					<tr>
+						<td colspan="2">1LDK</td>
+						<td colspan="4">東京都渋谷区上原3丁目</td>
+						<td colspan="3">東京メトロ千代田線 代々木上原駅 徒歩6分<br />小田急小田原線 東北沢駅 徒歩6分</td>
+					</tr>
+					<tr style="display: none;"><td colspan="9"></td></tr>
+					<tr>
+						<td colspan="9">
+							<ul class="list-inline album-selector">
+								<li><label for="3-1"><input type="checkbox" name="img[]" id="3-1" value="0" /><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ9SYFmpmi9QjEIGpAUCHJAbdtTOlQosiOW5-21AEOydXZCZek2" /></label></li>
+								<li><label for="3-2"><input type="checkbox" name="img[]" id="3-2" value="0" /><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQDEe-vZyXpEDp25N1NEjjeyAojIHx9-Nj4KSWRqEqkif43GC0EaYyW5Q" /></label></li>
+								<li><label for="3-3"><input type="checkbox" name="img[]" id="3-3" value="0" /><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRte1Oo-em-4T8Smd-UhWDcEkbDzMdZ-u2LqwxVQmVq23lhrK49yu27uA" /></label></li>
+								<li><label for="3-4"><input type="checkbox" name="img[]" id="3-4" value="0" /><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFfI0A7Y_ZJvfiXtdaPGKE-mEl8a-qXIwRR3KGdInJAehl66VgGgKFdQ" /></label></li>
+								<li><label for="3-5"><input type="checkbox" name="img[]" id="3-5" value="0" /><img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQHuG6exbGOP24Z2_z5Q0C4no_2J8v87-LhqK5jgN0SKbR7TB7CVw" /></label></li>
+							</ul>
+						</td>
+					</tr>
+					
+					
+					<!--
+					// Output format (For Japanese)
+					<tr id="{id}">
+						<td rowspan="4"><b>{id}</b></td>
+						<td colspan="9">
+							<b>物件</b>
+							<div class="pull-right">
+								<form action="add-property.html" method="post">
+									<input type="hidden" name="pid" value="{id}" />
+									<button type="submit" class="btn btn-default btn-xs">個別編集</button>
+								</form>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="text-nowrap">家賃</td>
+						<td class="text-nowrap">管理費</td>
+						<td class="text-nowrap">敷金</td>
+						<td class="text-nowrap">保証金</td>
+						<td class="text-nowrap">礼金</td>
+						<td class="text-nowrap">割引</td>
+						<td class="text-nowrap">築年</td>
+						<td class="text-nowrap">面積m&sup2;</td>
+						<td class="text-nowrap">採光</td>
+					</tr>
+					<tr style="display: none;"><td colspan="9"></td></tr>
+					<tr>
+						<td colspan="2">間取り</td>
+						<td colspan="4">所在</td>
+						<td colspan="3">交通</td>
+					</tr>
+					<tr style="display: none;"><td colspan="9"></td></tr>
+					<tr>
+						<td colspan="9">画像</td>
+					</tr>
+					-->
+					
+				</tbody>
+			</table>
+		</div>
+			
+		<form action="" method="post">
+			<div id="action" class="text-right">
+				<p>
+					<button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target=".upload-action">一括登録</button>
+				</p>
+			</div>
+		</form>
+		
+		<div class="copyright text-right"><small><i>Copyright &copy;2016 GORDES INC. All Rights Reserved.</i></small></div>
+	</div>
+	<!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+
+
+<div class="modal fade upload-action" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<form action="add-property-saccess.html" method="post" class="form-horizontal">
+				<!--
+				<div class="modal-header">
+					情報を公開してもよろしいですか？
+				</div>
+				-->
+				<div class="modal-body">
+					<p><b>以下ASPに公開します：</b></p>
+					<ul class="list-group">
+						<li class="list-group-item"><label for="asp1"><input type="checkbox" name="asp[]" id="asp1" checked="checked" />&nbsp;SUUMO</label></li>
+						<li class="list-group-item"><label for="asp2"><input type="checkbox" name="asp[]" id="asp2" checked="checked" />&nbsp;Home's</label></li>
+						<li class="list-group-item"><label for="asp3"><input type="checkbox" name="asp[]" id="asp3" checked="checked" />&nbsp;Athome</label></li>
+						<li class="list-group-item"><label for="asp4"><input type="checkbox" name="asp[]" id="asp4" checked="checked" />&nbsp;Mynavi</label></li>
+						<li class="list-group-item"><label for="asp5"><input type="checkbox" name="asp[]" id="asp5" checked="checked" />&nbsp;Eheya</label></li>
+						<li class="list-group-item"><label for="asp6"><input type="checkbox" name="asp[]" id="asp6" checked="checked" />&nbsp;CHINTAI</label></li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+					<button type="submit" class="btn btn-primary">はい</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<!-- jQuery by CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript ny CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<!-- Metis Menu Plugin JavaScript by CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/metisMenu/2.4.0/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+</body>
+</html>
